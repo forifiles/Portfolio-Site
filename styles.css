@@ -1,0 +1,260 @@
+:root {
+    --bg-color: #151b23;
+    --text-color: #e0e0e0;
+    --accent-color: #ff3b3b;
+    --secondary-color: #e06c75;
+    --line-number-color: #3b4048;
+    --header-height: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Consolas', 'Monaco', monospace;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.chat-bubble {
+    position: relative;
+    width: 40px;
+    height: 30px;
+    border: 2px solid #888;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--bg-color);
+    border-right: 2px solid #888;
+    border-bottom: 2px solid #888;
+    transform: rotate(45deg);
+}
+
+.heart {
+    color: var(--accent-color);
+    font-size: 16px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-text span:first-child {
+    color: #888;
+}
+
+.logo-text span:last-child {
+    color: var(--accent-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+main {
+    padding: 80px 0;
+    min-height: calc(100vh - var(--header-height) - 50px);
+}
+
+.code-block {
+    margin: 0 auto;
+    max-width: 800px;
+    position: relative;
+}
+
+.line {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.line-number {
+    width: 40px;
+    color: var(--line-number-color);
+    text-align: right;
+    padding-right: 20px;
+    user-select: none;
+}
+
+.content {
+    flex: 1;
+}
+
+.highlight {
+    color: var(--accent-color);
+}
+
+.secondary-highlight {
+    color: var(--secondary-color);
+}
+
+footer {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    margin: 60px auto;
+    max-width: 800px;
+}
+
+.section-title {
+    color: var(--text-color);
+    border-left: 3px solid var(--accent-color);
+    padding-left: 10px;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-img {
+    width: 100%;
+    height: 150px;
+    background-color: #2a3038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-info {
+    padding: 15px;
+}
+
+.project-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.tag {
+    background-color: rgba(255, 59, 59, 0.2);
+    color: var(--accent-color);
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background-color: var(--accent-color);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .logo {
+        margin-bottom: 20px;
+    }
+    
+    main {
+        padding: 40px 0;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
